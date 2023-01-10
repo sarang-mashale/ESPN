@@ -26,15 +26,16 @@ public class search {
         driver.get(url);
         driver.manage().window().maximize();
         System.out.println(driver.getTitle());
-        mywait=new WebDriverWait(driver,Duration.ofSeconds(5));
+        mywait=new WebDriverWait(driver,Duration.ofSeconds(10));
         search=new searchPage(driver);
     }
     @And("Search button is clicked")
     public void search_button_is_clicked() {
+        mywait.until(ExpectedConditions.visibilityOfElementLocated(By.id("global-search-trigger")));
         search.search_click();
     }
     @When("User enters input name {string}")
-    public void user_enters_input_name(String name) {
+    public void user_enters_input_name(String name){
         mywait.until(ExpectedConditions.visibilityOfElementLocated(By.id("global-search-input")));
         search.data_entry(name);
     }
