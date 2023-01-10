@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class searchPage {
     public static WebDriver driver;
-    By btn_search= By.cssSelector("a#global-search-trigger");
+    By btn_search= By.id("global-search-trigger");
     By search_field = By.id("global-search-input");
     By result= By.className("player__Results__Item");
     public searchPage(WebDriver driver){
